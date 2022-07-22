@@ -63,6 +63,25 @@ alias luceson="xset led on"
 alias lucesoff="xset led off"
 alias operadores_bash='cat /arch/.operadores_bash.txt'
 alias miip='echo; for miip in $(cat /etc/hosts  | grep localhost | awk "NR==1" | cut -d " " -f "1-1"); do echo -e "\e[33m[]\e[0mIP : \e[4;35m$miip\e[0m";done ; echo'
+alias pantallaconf='disper -s -r 1280x768'
+alias exiftool='/usr/bin/Image-ExifTool-12.42/exiftool'
+
+
+function scriptingC(){
+	data=${@:-""}
+	gcc $data 2>/dev/null >/dev/null
+	if [ "$(echo $?)" -eq "0" ];then
+		./a.out 
+	else
+		gcc $data
+	fi
+
+}
+alias c=scriptingC
+
+
+
+
 #alias minicraft='echo -e "\n\e[37m[*]\e[0m\e[32mIniciando.\e[0m\n" && java -jar /root/tlauncher/TLauncher-2.86.jar 2>/dev/null >/dev/null && sudo exit'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
